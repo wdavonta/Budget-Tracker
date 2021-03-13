@@ -8,11 +8,9 @@ const FILES_TO_CACHE = [
   '/index.html',
   '/manifest.json',
   '/assets/css/style.css',
-  '/assets/js/loadImages.js',
-  '/assets/images/icons/icon-72x72.png',
-  '/assets/images/icons/icon-96x96.png',
-  '/assets/images/icons/icon-128x128.png',
-  '/assets/images/icons/icon-144x144.png',
+   '/public/js/index.js',
+   '/public/js/idb.js'
+
 ];
 
 
@@ -49,7 +47,6 @@ self.addEventListener('activate', function(evt) {
 
 
 // Intercept fetch requests
-// YOUR CODE HERE
 
 self.addEventListener('fetch', function(evt) {
     if (evt.request.url.includes('/api/')) {
@@ -78,13 +75,11 @@ self.addEventListener('fetch', function(evt) {
       }
 
       evt.respondWith(
-        fetch(evt.request).catch(function() {
+        caches.open(CACHE_NAME).then(cache => {
           return caches.match(evt.request).then(function(response) {
             if (response) {
-              return response;
-            } else if (evt.request.headers.get('accept').includes('text/html')) {
-              // return the cached home page for all requests for html pages
-              return caches.match('/');
+              return response || fetch(evt.request);
+
             }
           });
         })
