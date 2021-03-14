@@ -4,11 +4,10 @@ const CACHE_NAME = 'BudgetTracker';
 const DATA_CACHE_NAME = 'data-cache-v1';
 
 const FILES_TO_CACHE = [
-  './index.html',
-  './css/style.css',
-   './js/index.js',
-   '.js/idb.js'
-
+    './index.html',
+    './css/styles.css',
+    './js/index.js',
+    './js/idb.js'
 ];
 
 
