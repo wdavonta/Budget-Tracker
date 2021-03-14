@@ -24,7 +24,7 @@ request.onsuccess = function (event) {
 };
 
 
-requeest.onerror = function (event) {
+request.onerror = function (event) {
     console.log(event.target.errorCode);
 };
 
