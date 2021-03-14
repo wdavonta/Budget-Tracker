@@ -1,7 +1,7 @@
 // create variable to hold db connection
 let db;
 // establish a connection to IndexedDB database called 'pending_trans' and set it to version 1
-const request = indexedDB.open('pending_trans', 1);
+const request = indexedDB.open('budget', 1);
 
 
 // this event will emit if the database version changes (nonexistant to version 1, v1 to v2, etc.)
