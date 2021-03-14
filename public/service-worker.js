@@ -1,15 +1,13 @@
 // Uncomment the lines below to set up the cache files
 //
-const CACHE_NAME = 'my-site-cache-v1';
-const DATA_CACHE_NAME = 'data-cache-v1';
+const CACHE_NAME = 'BudgetTracker';
+const DATA_CACHE_NAME = 'data-cache-v2';
 
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/assets/css/style.css',
-   '/public/js/index.js',
-   '/public/js/idb.js'
+  './index.html',
+  './css/style.css',
+   './js/index.js',
+   '.js/idb.js'
 
 ];
 
