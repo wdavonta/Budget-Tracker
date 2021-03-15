@@ -72,10 +72,12 @@ self.addEventListener('fetch', function(evt) {
       }
 
       evt.respondWith(
-        caches.open(CACHE_NAME).then(cache => {
+        fetch(evt.request).catch(function() {
           return caches.match(evt.request).then(function(response) {
-            if (response) {
-              return response || fetch(evt.request);
+              if (response) {
+              return response;
+              } else if (evt.request.headers.get('accept').includes('text/html')) {
+                  return caches.match('/');
 
             }
           });
