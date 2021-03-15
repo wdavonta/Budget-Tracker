@@ -38,7 +38,7 @@ self.addEventListener('activate', function(evt) {
             );
         })
     );
-    self.skipWaiting();
+    self.clients.claim()
 });
 
 
